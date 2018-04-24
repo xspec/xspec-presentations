@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xspec-jats.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="coi.xsl">
+    <x:scenario shared="yes" label="fn-type normalized">
+        <x:expect label="fn-type COI-statement">
+            <fn fn-type="COI-statement"><label></label><p></p></fn>
+        </x:expect>
+    </x:scenario>
+    <x:scenario label="footnote">
+        <x:scenario label="ideal">
+            <x:context>
+                <fn fn-type="COI-statement"><label></label><p></p></fn>
+            </x:context>
+            <x:like label="fn-type normalized"/>
+        </x:scenario>
+        <x:scenario label="all lower case">
+            <x:context>
+                <fn fn-type="coi-statement"><label></label><p></p></fn>
+            </x:context>
+            <x:like label="fn-type normalized"/>
+        </x:scenario>
+        <x:scenario label="conflict">
+            <x:context>
+                <fn fn-type="conflict"><label></label><p></p></fn>
+            </x:context>
+            <x:like label="fn-type normalized"/>
+        </x:scenario>
+        <x:scenario label="conflict-of-interest">
+            <x:context>
+                <fn fn-type="conflict-of-interest"><label></label><p></p></fn>
+            </x:context>
+            <x:like label="fn-type normalized"/>
+        </x:scenario>
+        <x:scenario label="coi">
+            <x:context>
+                <fn fn-type="coi"><label></label><p></p></fn>
+            </x:context>
+            <x:like label="fn-type normalized"/>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario shared="yes" label="sec-type normalized">
+        <x:expect label="sec-type COI-statement">
+            <sec sec-type="COI-statement"/>
+        </x:expect>
+    </x:scenario>
+    <x:scenario label="section">
+        <x:scenario label="ideal">
+            <x:context>
+                <sec sec-type="COI-statement"/>
+            </x:context>
+            <x:like label="sec-type normalized"/>
+        </x:scenario>
+        <x:scenario label="all lower case">
+            <x:context>
+                <sec sec-type="coi-statement"/>
+            </x:context>
+            <x:like label="sec-type normalized"/>
+        </x:scenario>
+        <x:scenario label="conflict">
+            <x:context>
+                <sec sec-type="conflict"/>
+            </x:context>
+            <x:like label="sec-type normalized"/>
+        </x:scenario>
+        <x:scenario label="conflict-of-interest">
+            <x:context>
+                <sec sec-type="conflict-of-interest"/>
+            </x:context>
+            <x:like label="sec-type normalized"/>
+        </x:scenario>
+        <x:scenario label="coi">
+            <x:context>
+                <sec sec-type="coi"/>
+            </x:context>
+            <x:like label="sec-type normalized"/>
+        </x:scenario>
+    </x:scenario>
+</x:description>
