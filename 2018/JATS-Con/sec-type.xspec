@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xspec-jats.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="sec-type.sch">
+    <x:scenario label="sec-type attribute value">
+        <x:scenario label="recommended should have no message output">
+            <x:context>
+                <sec sec-type="introduction"/>
+            </x:context>
+            <x:expect-rule id="r1"/>
+            <x:expect-not-assert id="a1"/>
+            <x:expect-not-assert id="a2"/>
+        </x:scenario>
+        <x:scenario label="non-recommended and recognized should output a warning message">
+            <x:context>
+                <sec sec-type="intro"/>
+            </x:context>
+            <x:expect-assert id="a1" role="warn"/>
+            <x:expect-not-assert id="a2"/>
+        </x:scenario>
+        <x:scenario label="non-recommended and non-recognized should output warning and informational messages">
+            <x:context>
+                <sec sec-type="new"/>
+            </x:context>
+            <x:expect-assert id="a1" role="warn"/>
+            <x:expect-assert id="a2" role="info"/>
+        </x:scenario>
+    </x:scenario>
+</x:description>
