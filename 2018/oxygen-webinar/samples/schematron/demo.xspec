@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="demo.sch">
+    <x:scenario label="Books checks">
+        
+        <x:scenario label="Books should have a title">
+            <x:context>
+                <book>
+                    <author>Stephen King</author>
+                    <price>18</price>
+                    <date>2013-10-30</date>
+                </book>
+            </x:context>
+            <x:expect-assert id="book-without-title"/>
+        </x:scenario>
+        
+        <x:scenario label="Short descriptions should be concise">
+            <x:scenario label="Proper description">
+                <x:context>
+                    <book>
+                        <shortdesc>Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit.</shortdesc>
+                    </book>
+                </x:context>
+                <x:expect-not-assert id="shortdesc-too-long" />
+                <x:expect-not-assert id="shortdesc-too-short" />
+            </x:scenario>
+
+            <x:scenario label="Short description">
+                <x:context>
+                    <book>
+                        <shortdesc>Lorem ipsum dolor</shortdesc>
+                    </book>
+                </x:context>
+
+                <x:expect-assert label="Short description is too short" id="shortdesc-too-short"/>
+            </x:scenario>
+
+            <x:scenario label="Long description">
+                <x:context>
+                    <book>
+                        <shortdesc>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Suspendisse dolor nisl, fringilla sit amet tellus eget, dignissim
+                            efficitur tortor. Mauris in iaculis magna. Morbi sagittis risus nunc, at
+                            viverra sapien rhoncus a. Sed placerat consequat elit, vel interdum nisi
+                            luctus volutpat. Nunc non ligula tortor. Ut convallis enim a leo
+                            faucibus feugiat. Aenean in ultrices odio, eu dignissim lectus. Etiam
+                            porta dui at dapibus pulvinar. Mauris commodo justo non nisi facilisis
+                            auctor. Morbi nulla dolor, interdum sit amet justo at, hendrerit mattis
+                            odio. Pellentesque habitant morbi tristique senectus et netus et
+                            malesuada fames ac turpis egestas. Quisque convallis ex vitae nisi
+                            interdum aliquet. In sagittis dolor sit amet urna laoreet gravida.
+                            Vestibulum libero odio, sollicitudin vitae facilisis sed, mattis finibus
+                            urna. Nullam vel sem vel enim ornare consequat et at felis. Integer
+                            nulla nisi, aliquet at massa eget, viverra aliquet odio. </shortdesc>
+                    </book>
+                </x:context>
+                <x:expect-assert label="Short description is too long" id="shortdesc-too-long"
+                    location="/book[1]/shortdesc[1]"/>
+            </x:scenario>
+
+
+        </x:scenario>
+    </x:scenario>
+</x:description>

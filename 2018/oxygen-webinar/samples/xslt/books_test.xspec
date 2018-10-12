@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+     stylesheet="books.xsl">
+
+    <x:scenario label="Book headings">
+        <x:call template="printBookTitle">
+            <x:param name="book">
+                <book>
+                    <title>The Green Mile</title>
+                    <author>Stephen King</author>
+                    <price>18</price>
+                    <date>2013-10-30</date>
+                </book>
+            </x:param>
+        </x:call>
+        
+        <x:expect label="Header format">
+            <div class="book.title">
+                <h1>The Green Mile</h1>
+                <div>
+                    <span>...</span>
+                    <span>by Stephen King</span>
+                </div>
+            </div>
+        </x:expect>
+        
+        <x:expect label="Date format" test="/div/div/span[1]"><span>30/10/2013</span></x:expect>
+    </x:scenario>
+
+    <x:scenario
+        label="Scenario for testing template with match 'books' and mode 'outline'">
+        <x:context mode="outline">
+            <books>
+                <book>
+                    <title>The Green Mile</title>
+                    <author>Stephen King</author>
+                    <price>18</price>
+                    <date>2013-10-30</date>
+                </book>
+                <book>
+                    <title>The Catcher in the Rye</title>
+                    <author>J. D. Salinger</author>
+                    <price>25</price>
+                    <date>2013-10-30</date>
+                </book>
+            </books>
+        </x:context>
+        <x:expect label="An unordered list is used in the outline">
+            <ul>
+                <li>The Green Mile</li>
+                <li>The Catcher in the Rye</li>
+            </ul>
+        </x:expect>
+    </x:scenario>
+</x:description>

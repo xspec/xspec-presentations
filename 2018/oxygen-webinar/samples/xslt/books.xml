@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <title>The Green Mile</title>
+        <author>Stephen King</author>
+        <price>18</price>
+        <date>2013-10-30</date>
+    </book>
+    <book>
+        <title>The Catcher in the Rye</title>
+        <author>J. D. Salinger</author>
+        <price>25</price>
+        <date>2013-10-30</date>
+    </book>
+    <book>
+        <title>I, Robot</title>
+        <author>Issac Asimov</author>
+        <price>15</price>
+        <date>2013-10-30</date>
+    </book>
+</books>
